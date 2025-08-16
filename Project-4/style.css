@@ -1,28 +1,69 @@
-html,
-body {
+/* Reset & Base */
+html, body {
   height: 100%;
   margin: 0;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-family: "Poppins", sans-serif;
   line-height: 1.8em;
-  color: #666;
+  scroll-behavior: smooth;
+  color: #444;
 }
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.8);
+  padding: 15px 50px;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00c896;
+}
+
+/* Parallax Images */
 .pimg1 {
   background-image: url(images/image1.png);
-  min-height: 100%;
+  min-height: 100vh;
 }
+
 .pimg2 {
   background-image: url(images/image2.png);
-  min-height: 400px;
+  min-height: 80vh;
 }
+
 .pimg3 {
   background-image: url(images/image3.png);
-  min-height: 400px;
+  min-height: 80vh;
 }
-.pimg1,
-.pimg2,
-.pimg3 {
+
+.pimg1, .pimg2, .pimg3 {
   position: relative;
   background-position: center;
   background-size: cover;
@@ -30,31 +71,51 @@ body {
   background-attachment: fixed;
 }
 
+/* Text on Parallax */
 .ptext {
   position: absolute;
   top: 50%;
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  color: black;
-  font-size: 27px;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-}
-.textBg {
-  background: #313534;
-  color: #fff;
-  padding: 20px;
+  color: white;
 }
 
+.textBg {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px 40px;
+  font-size: 36px;
+  letter-spacing: 4px;
+  border-radius: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-top: 15px;
+  color: #ddd;
+}
+
+/* Sections */
 .section {
-  padding: 50px 80px;
+  padding: 80px 15%;
   text-align: center;
 }
+
 .section-light {
-  background-color: #f4f4f4;
-  color: #666;
+  background-color: #f9f9f9;
+  color: #444;
 }
+
 .section-dark {
-  background-color: #282e34;
-  color: #ddd;
+  background-color: #222;
+  color: #eee;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
 }
