@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Dashboard UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle -->
+    <input type="checkbox" id="toggleSidebar">
+
+    <!-- Dark Mode Toggle -->
+    <input type="checkbox" id="toggleTheme" hidden>
+
+    <!-- Modal Trigger -->
+    <input type="checkbox" id="openModal">
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>MyDash</h2>
+            <ul class="menu">
+                <li><a href="#">🏠 Home</a></li>
+                <li><a href="#">📊 Analytics</a></li>
+                <li><a href="#">⚙️ Settings</a></li>
+                <li><label for="openModal">📩 Messages</label></li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+            <!-- Topbar -->
+            <div class="topbar">
+                <h1>Welcome Back 👋</h1>
+                <div class="actions">
+                    <div class="search">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <label for="toggleSidebar" style="cursor:pointer;">📚</label>
+                    <label for="toggleTheme" style="cursor:pointer;">🌗</label>
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+                <div class="card">
+                    <h3>Revenue</h3>
+                    <p>$12,340</p>
+                    <div class="progress"><span style="width:70%"></span></div>
+                </div>
+                <div class="card">
+                    <h3>Users</h3>
+                    <p>2,560</p>
+                    <div class="progress"><span style="width:50%"></span></div>
+                </div>
+                <div class="card">
+                    <h3>Orders</h3>
+                    <p>1,230</p>
+                    <div class="progress"><span style="width:80%"></span></div>
+                </div>
+                <div class="card">
+                    <h3>Growth</h3>
+                    <p>+18%</p>
+                    <div class="progress"><span style="width:90%"></span></div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <input type="radio" name="tab" id="tab1" checked>
+                <label for="tab1">Orders</label>
+
+                <input type="radio" name="tab" id="tab2">
+                <label for="tab2">Analytics</label>
+
+                <input type="radio" name="tab" id="tab3">
+                <label for="tab3">Settings</label>
+            </div>
+
+            <div class="content">
+                <div class="tab-content" id="content1">
+                    <h2>Recent Orders</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1023</td>
+                                <td>John Doe</td>
+                                <td>✅ Completed</td>
+                                <td>$120</td>
+                            </tr>
+                            <tr>
+                                <td>#1024</td>
+                                <td>Jane Smith</td>
+                                <td>⏳ Pending</td>
+                                <td>$250</td>
+                            </tr>
+                            <tr>
+                                <td>#1025</td>
+                                <td>Mike Johnson</td>
+                                <td>❌ Canceled</td>
+                                <td>$80</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="content2">
+                    <h2>Analytics</h2>
+                    <p>Analytics graphs could be built with pure CSS charts here 🎨.</p>
+                </div>
+
+                <div class="tab-content" id="content3">
+                    <h2>Settings</h2>
+                    <p>Customize your dashboard layout and preferences here.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-box">
+            <h2>New Message</h2>
+            <p>You have 3 unread messages.</p>
+            <label for="openModal">Close</label>
+        </div>
+    </div>
+
+    <script>
+        // Only for theme toggle (using body class)
+        document.getElementById("toggleTheme").addEventListener("change", e => {
+            document.body.classList.toggle("light", e.target.checked);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+ /* Variables for dark & light mode */
+    :root {
+      --bg:#0f172a;
+      --card:#1e293b;
+      --accent:#38bdf8;
+      --text:#f1f5f9;
+      --muted:#94a3b8;
+    }
+    
+    body.light {
+      --bg:#f8fafc;
+      --card:#e2e8f0;
+      --accent:#2563eb;
+      --text:#0f172a;
+      --muted:#475569;
+    }
+
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Segoe UI', sans-serif; background:var(--bg); color:var(--text); transition:all .3s ease;}
+
+    /* Layout */
+    .dashboard {display:grid; grid-template-columns:250px 1fr; min-height:100vh;}
+
+    /* Sidebar */
+    .sidebar {background:var(--card); padding:2rem 1rem; display:flex; flex-direction:column; gap:2rem; transition:width .3s ease;}
+    .sidebar h2 {text-align:center; margin-bottom:1rem; color:var(--accent);}
+    .menu {list-style:none; display:flex; flex-direction:column; gap:1rem;}
+    .menu a {color:var(--text); text-decoration:none; padding:0.8rem 1rem; border-radius:10px; transition:background .3s ease; display:block;}
+    .menu a:hover {background:var(--accent); color:var(--bg);}
+
+    /* Sidebar collapse */
+    #toggleSidebar {display:none;}
+    #toggleSidebar:checked ~ .dashboard .sidebar {width:60px;}
+    #toggleSidebar:checked ~ .dashboard .sidebar h2, 
+    #toggleSidebar:checked ~ .dashboard .sidebar .menu a {text-align:center; font-size:0;}
+    #toggleSidebar:checked ~ .dashboard .sidebar .menu a::before {font-size:1.2rem;}
+
+    /* Main */
+    .main {padding:2rem; display:flex; flex-direction:column; gap:2rem;}
+
+    /* Topbar */
+    .topbar {display:flex; justify-content:space-between; align-items:center;}
+    .search input {padding:0.5rem 1rem; border:none; border-radius:20px; outline:none;}
+    .actions {display:flex; gap:1rem; align-items:center;}
+
+    /* Cards */
+    .cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem;}
+    .card {background:var(--card); padding:1.5rem; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition:transform .3s ease;}
+    .card:hover {transform:translateY(-5px);}
+    .card h3 {color:var(--accent); margin-bottom:0.5rem;}
+    .progress {background:var(--bg); border-radius:10px; overflow:hidden; height:10px; margin-top:0.5rem;}
+    .progress span {display:block; height:100%; background:var(--accent);}
+
+    /* Tabs */
+    .tabs {display:flex; gap:1rem; margin-top:2rem;}
+    .tabs label {padding:0.5rem 1rem; background:var(--card); border-radius:8px; cursor:pointer; transition:.3s;}
+    .tabs label:hover {background:var(--accent); color:var(--bg);}
+    input[name="tab"] {display:none;}
+    .tab-content {display:none; margin-top:1rem;}
+    #tab1:checked ~ .content #content1,
+    #tab2:checked ~ .content #content2,
+    #tab3:checked ~ .content #content3 {display:block;}
+
+    /* Table */
+    table {width:100%; border-collapse:collapse; background:var(--card); border-radius:10px; overflow:hidden;}
+    th, td {padding:1rem; text-align:left; border-bottom:1px solid var(--bg);}
+    th {background:#334155;}
+    tr:hover {background:#1e40af;}
+
+    body.light th {background:#cbd5e1;}
+    body.light tr:hover {background:#93c5fd;}
+
+    /* Modal */
+    #openModal {display:none;}
+    #openModal:checked ~ .modal {display:flex;}
+    .modal {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:none; align-items:center; justify-content:center;}
+    .modal-box {background:var(--card); padding:2rem; border-radius:10px; width:300px; text-align:center;}
+    .modal label {display:inline-block; margin-top:1rem; padding:0.5rem 1rem; background:var(--accent); color:var(--bg); border-radius:8px; cursor:pointer;}
+
+    /* Responsive */
+    @media (max-width:768px) {
+      .dashboard {grid-template-columns:1fr;}
+      .sidebar {flex-direction:row; justify-content:space-around;}
+      .menu {flex-direction:row;}
+    }
